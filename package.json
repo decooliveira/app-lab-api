@@ -1,0 +1,39 @@
+{
+  "name": "AppLab",
+  "version": "0.1.0",
+  "description": "AppLab API",
+  "main": "server.js",
+  "scripts": {
+    "dev": "env-cmd -f ./config/dev.env nodemon src/server.js",
+    "stage": "env-cmd -f ./config/stage.env nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decooliveira/app-lab-api.git"
+  },
+  "author": "Deco Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/decooliveira/app-lab-api/issues"
+  },
+  "homepage": "https://github.com/decooliveira/app-lab-api#readme",
+  "dependencies": {
+    "aws-sdk": "^2.691.0",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.6",
+    "nodejs-base64": "^1.0.3",
+    "path": "^0.12.7",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.4"
+  }
+}
