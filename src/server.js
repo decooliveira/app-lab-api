@@ -7,13 +7,16 @@ require('./db/mongoose');
 const app = express();
 const server = http.createServer(app);
 const port = process.env.PORT || 5000;
+const env = process.env.ENV;
 
 app.use(express.json());
 app.use(cors());
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger.js');
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+if (env !=='PROD') {
+    const swaggerUi = require('swagger-ui-express');
+    const swaggerDocument = require('../swagger.js');
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+}
 
 
 const laboratorioRouter = require('./routers/laboratorioRouter');
