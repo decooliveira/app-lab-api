@@ -179,6 +179,16 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 
+## Buscar um exame por nome
+
+Um exame pode ser buscado usando-se seu **nome** como parâmetro. Como resultado desta busca, a resposta será o exame e a lista de laboratórios associados a ele.
+URL  [/api/v1/exames/{nome}](https://x-app-lab.herokuapp.com/api/v1/exames/%7Bnome%7D)
+```bash
+curl -X 'GET' \
+  'http://localhost:5000/api/v1/exames/Polissonografia' \
+  -H 'accept: application/json'
+```
+
 ## Atualizar um exame existente
 
 Os dados de um exame podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exanes). O **id** do exame deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
