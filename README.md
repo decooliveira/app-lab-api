@@ -188,7 +188,28 @@ curl -X 'GET' \
   'http://localhost:5000/api/v1/exames/Polissonografia' \
   -H 'accept: application/json'
 ```
-
+**Exemplo de resposta**
+```json
+[
+  {
+    "tipo": "Imagem",
+    "status": "ativo",
+    "laboratorios": [
+      {
+        "ativo": true,
+        "_id": "614ab6b5f46bad0027936755",
+        "nome": "Laboratório XMed",
+        "endereco": "Rua dos Laboratórios, 55 - Porto Alegre - RS"
+      }
+    ],
+    "_id": "614ab33af46bad0027936736",
+    "nome": "Ultrassonografia",
+    "createdAt": "2021-09-22T04:38:18.240Z",
+    "updatedAt": "2021-09-22T04:53:47.175Z",
+    "__v": 0
+  }
+]
+```
 ## Atualizar um exame existente
 
 Os dados de um exame podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exanes). O **id** do exame deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
