@@ -1,38 +1,12 @@
 const Exame = require("../models/Exame");
 const Laboratorio = require("../models/Laboratorio");
-const TAMANHO_MAXIMO_LOTE = process.env.TAMANHO_MAXIMO_LOTE || 10;
 
 class LaboratorioController {
+
   async cadastrar(req, res, next) {
     try {
       const laboratorio = await Laboratorio(req.body).save();
       return res.json(laboratorio);
-    } catch (e) {
-      return res.status(400).json({
-        statusCode: 400,
-        message: "Não foi possível cadastrar o laboratório",
-        reason: e.message,
-      });
-    }
-  }
-
-  async cadastrarLote(req, res, next) {
-    try {
-      const laboratorios = req.body;
-
-      if (laboratorios.length > TAMANHO_MAXIMO_LOTE || laboratorios.length === undefined) {
-        return res.status(400).json({
-          statusCode: 400,
-          message: "Não foi possível cadastrar o lote de laboratórios",
-          reason: "O lote está vazio ou excedeu o número máximo de items: "+ TAMANHO_MAXIMO_LOTE
-        });
-      }
-
-      laboratorios.map(async (e) => {
-        await Laboratorio(e).save();
-      });
-
-      return res.status(200).send();
     } catch (e) {
       return res.status(400).json({
         statusCode: 400,
@@ -58,39 +32,6 @@ class LaboratorioController {
       }
 
       res.send(laboratorio);
-    } catch (e) {
-      return res.status(400).json({
-        statusCode: 400,
-        message: "Não foi possível atualizar os dados do laboratório",
-        reason: e.message,
-      });
-    }
-  }
-
-  async atualizarLote(req, res, next) {
-    try {
-      const laboratorios = await req.body;
-
-      if (laboratorios.length > TAMANHO_MAXIMO_LOTE || laboratorios.length === undefined) {
-        return res.status(400).json({
-          statusCode: 400,
-          message: "Não foi possível atualizar o lote de laboratórios",
-          reason: "O lote está vazio ou excedeu o número máximo de items: "+ TAMANHO_MAXIMO_LOTE
-        });
-      }
-
-      laboratorios.map(async (e) => {
-        const laboratorio = await Laboratorio.findByIdAndUpdate(e._id, e, {
-          new: true,
-          runValidators: true,
-        });
-
-        if (!laboratorio) {
-          return res.status(404).send();
-        }
-      });
-
-      return res.status(200).send();
     } catch (e) {
       return res.status(400).json({
         statusCode: 400,
@@ -134,6 +75,54 @@ class LaboratorioController {
       return res.status(400).json({
         statusCode: 400,
         message: "Não foi possível remover o laboratório",
+        reason: e.message,
+      });
+    }
+  }
+
+  //Lotes
+
+  async cadastrarLote(req, res, next) {
+    
+    try {
+      
+      const laboratorios = req.body;
+
+      laboratorios.map(async (e) => {
+        await Laboratorio(e).save();
+      });
+
+      return res.status(200).send();
+    } catch (e) {
+      return res.status(400).json({
+        statusCode: 400,
+        message: "Não foi possível cadastrar o laboratório",
+        reason: e.message,
+      });
+    }
+  }
+
+  async atualizarLote(req, res, next) {
+    try {
+
+      const laboratorios = await req.body;
+
+      laboratorios.map(async (e) => {
+        const laboratorio = await Laboratorio.findByIdAndUpdate(e._id, e, {
+          new: true,
+          runValidators: true,
+        });
+
+        if (!laboratorio) {
+          return res.status(404).send();
+        }
+      });
+
+      return res.status(200).send();
+    } catch (e) {
+      return res.status(400).json({
+        statusCode: 400,
+        message: "Não foi possível atualizar os dados do laboratório",
         reason: e.message,
       });
     }

@@ -15,6 +15,7 @@ Controller ->> Database:
 
 
 ```
+
 # Documentação (Swagger)
 
 
@@ -67,6 +68,7 @@ curl -X 'POST' \
 ]'
 ```
 
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
  
 ## Obter uma lista laboratórios ativos
 
@@ -107,6 +109,7 @@ curl -X 'PATCH' \
   }
 ]'
 ```
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
 ## Remover laboratórios
 
 Para remover um laboratório uma operação **DELETE** deve ser realizada no endpoint [/v1/laboratorios/{id}](https://x-app-lab.herokuapp.com/api/v1/laboratorios). O **id** do laboratório deve ser informado na *url* requisitada.
@@ -129,6 +132,7 @@ curl -X 'DELETE' \
   "id-do-objeto-2"
 ]'
 ```
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
 # Exames
 
 Para laboratórios a aplicação oferece as seguintes funcionalidades:
@@ -142,6 +146,17 @@ Para laboratórios a aplicação oferece as seguintes funcionalidades:
 ## Cadastrar um novo exame
 
 Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/exames'](https://x-app-lab.herokuapp.com/api/v1/exames)
+```
+*IMPORTANTE*
+Os atributo 'tipo'pode ser definido somente com os valores a seguir:
+- Análise Clínica
+- Imagem
+
+Os valores mencionados são 'case sensitive'.
+```
+
+
+
 ```bash
 curl -X 'POST' \
   'http://localhost:5000/api/v1/exames' \
@@ -168,7 +183,8 @@ curl -X 'POST' \
   }
 ]'
 ```
-
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
+> 
 ## Obter uma lista exames ativos
 
 Para se obter uma lista de exames ativos, basta invocar o endpoint [/v1/exames](https://x-app-lab.herokuapp.com/api/v1/exames) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
@@ -239,7 +255,7 @@ curl -X 'PATCH' \
   }
 ]'
 ```
-
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
 ## Remover logicamente um exame ativo
 
 Para remover um exame uma operação **DELETE** deve ser realizada no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exames). O **id** do laboratório deve ser informado na *url* requisitada.
@@ -261,7 +277,7 @@ curl -X 'DELETE' \
   "string"
 ]'
 ```
-
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
 
 # Associações
 
