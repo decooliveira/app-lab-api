@@ -13,7 +13,7 @@
         }
     },
     "schemes": ["http"],
-    "host": "localhost:5000",
+    "host": "https://x-app-lab.herokuapp.com",
     "basePath": "/api/v1",
     "paths" : {
         "/laboratorios" : {
