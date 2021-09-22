@@ -18,7 +18,7 @@ Controller ->> Database:
 # Documentação (Swagger)
 
 
-Todas as operações disponíveis na API REST desta aplicação estão documentadas e podem ser testadas e acessadas por meio do Swagger em (http://localhost:5000/api-docs),.
+Todas as operações disponíveis na API REST desta aplicação estão documentadas e podem ser testadas e acessadas por meio do Swagger na *url* https://x-app-lab.herokuapp.com/api-docs (*ou localmente em http://localhost:5000/api-docs*).
 
 
 # Laboratórios
@@ -32,7 +32,7 @@ Para laboratórios a aplicação oferece as seguintes funcionalidades:
 Cada uma das funcionalidades é apresentada a seguir...
 ## Cadastrar laboratórios
 
-Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/laboratórios'](/v1/laborat%C3%B3rios)
+Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/laboratórios'](https://x-app-lab.herokuapp.com/api/v1/laborat%C3%B3rios)
 
     {
       "nome": "string",
@@ -51,7 +51,7 @@ curl -X 'POST' \
 ```
 
  **Cadastro em lote**
-> É possível realizar o cadastro de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](/v1/laboratorios). 
+> É possível realizar o cadastro de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -70,7 +70,7 @@ curl -X 'POST' \
  
 ## Obter uma lista laboratórios ativos
 
-Para se obter uma lista de laboratórios ativos, basta invocar o endpoint [/v1/laboratorios](/v1/laboratorios) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
+Para se obter uma lista de laboratórios ativos, basta invocar o endpoint [/v1/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
 
 ```bash
 curl -X 'GET' \
@@ -80,7 +80,7 @@ curl -X 'GET' \
 
 ## Atualizar um laboratório
 
-Os dados de um laboratório podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/laboratorios/{id}](/v1/laboratorios). O **id** do laboratório deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
+Os dados de um laboratório podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/laboratorios/{id}](https://x-app-lab.herokuapp.com/api/v1/laboratorios). O **id** do laboratório deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
 ```bash
 curl -X 'PATCH' \
   'http://localhost:5000/api/v1/laboratorios/61a23453f5412d' \
@@ -92,7 +92,7 @@ curl -X 'PATCH' \
 }'
 ```
  **Atualização em lote**
-> É possível realizar a atualização de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](/v1/laboratorios). 
+> É possível realizar a atualização de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -109,14 +109,14 @@ curl -X 'PATCH' \
 ```
 ## Remover laboratórios
 
-Para remover um laboratório uma operação **DELETE** deve ser realizada no endpoint [/v1/laboratorios/{id}](/v1/laboratorios). O **id** do laboratório deve ser informado na *url* requisitada.
+Para remover um laboratório uma operação **DELETE** deve ser realizada no endpoint [/v1/laboratorios/{id}](https://x-app-lab.herokuapp.com/api/v1/laboratorios). O **id** do laboratório deve ser informado na *url* requisitada.
 ```bash
 curl -X 'DELETE' \
   'http://localhost:5000/api/v1/laboratorios/6a66643f6e7f5ed4' \
   -H 'accept: application/json'
 ```
  **Remove em lote**
-> É possível realizar a remoção de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](/v1/laboratorios). 
+> É possível realizar a remoção de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -141,7 +141,7 @@ Para laboratórios a aplicação oferece as seguintes funcionalidades:
 
 ## Cadastrar um novo exame
 
-Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/exames'](/v1/exames)
+Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/exames'](https://x-app-lab.herokuapp.com/api/v1/exames)
 ```bash
 curl -X 'POST' \
   'http://localhost:5000/api/v1/exames' \
@@ -153,7 +153,7 @@ curl -X 'POST' \
 }'
 ```
  **Cadastro em lote**
-> É possível realizar o cadastro de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](/v1/exames). 
+> É possível realizar o cadastro de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](https://x-app-lab.herokuapp.com/api/v1/exames). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -171,7 +171,7 @@ curl -X 'POST' \
 
 ## Obter uma lista exames ativos
 
-Para se obter uma lista de exames ativos, basta invocar o endpoint [/v1/exames](/v1/exames) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
+Para se obter uma lista de exames ativos, basta invocar o endpoint [/v1/exames](https://x-app-lab.herokuapp.com/api/v1/exames) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
 
 ```bash
 curl -X 'GET' \
@@ -181,7 +181,7 @@ curl -X 'GET' \
 
 ## Atualizar um exame existente
 
-Os dados de um exame podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/exames/{id}](/v1/exanes). O **id** do exame deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
+Os dados de um exame podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exanes). O **id** do exame deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
 ```bash
 curl -X 'PATCH' \
   'http://localhost:5000/api/v1/exames/6d5e66f3e4a6f' \
@@ -193,7 +193,7 @@ curl -X 'PATCH' \
 }'
 ```
  **Atualização em lote**
-> É possível realizar a atualização de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](/v1/exames). 
+> É possível realizar a atualização de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](https://x-app-lab.herokuapp.com/api/v1/exames). 
 > O limite de 10 exames pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -211,64 +211,86 @@ curl -X 'PATCH' \
 
 ## Remover logicamente um exame ativo
 
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
+Para remover um exame uma operação **DELETE** deve ser realizada no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exames). O **id** do laboratório deve ser informado na *url* requisitada.
+```bash
+curl -X 'DELETE' \
+  'http://localhost:5000/api/v1/exames/6f4e5a6d4e326de' \
+  -H 'accept: application/json'
+```
+ **Remove em lote**
+> É possível realizar a remoção de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](https://x-app-lab.herokuapp.com/api/v1/exames). 
+> O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
+
+```bash
+curl -X 'DELETE' \
+  'http://localhost:5000/api/v1/lote/exames' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  "string"
+]'
+```
 
 
 # Associações
 
+**Vincular  exames a  laboratórios**
+Um exame pode ser associado a um ou mais laboratórios.
+**POST** /api/v1/associacoes
+    {
+      "laboratorioId": "string",
+      "exameId": "string"
+    }
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+```bash
+curl -X 'POST' \
+  'http://localhost:5000/api/v1/associacoes' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "laboratorioId": "string",
+  "exameId": "string"
+}'
+```
+**Desfazer vínculo entre  exames a  laboratórios**
+A associação entre exames e laboratórios pode ser desfeita a qualquer momento. 
+**DELETE** /api/v1/associacoes
+    {
+      "laboratorioId": "string",
+      "exameId": "string"
+    }
 
-## Atualizar exames
-
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
-
-## Remover exames
-
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
-
-
+```bash
+curl -X 'DELETE' \
+  'http://localhost:5000/api/v1/associacoes' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "laboratorioId": "string",
+  "exameId": "string"
+}'
+```
 
 
 ## Execução da aplicação
 
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
+A aplicação está implantada na plataforma **Heroku** e pode ser acessada na *url* https://x-app-lab.herokuapp.com/api-docs
+Contudo, ela pode ser executada localmente com ou sem o uso de containers.
 
-## Save a file
+## Com container
 
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
+Em ambiente local para que a API seja executada, será preciso digitar o comando abaixo no diretório raiz da aplicação:
 
-## Synchronize a file
+    docker-compose up --build -d
+A documentação da API poderá ser acessada na *url* http://localhost:5000/api-docs
 
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
-
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
-
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
-
-## Manage file synchronization
-
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
+## Sem container
 
 
-# Publication
+Sem o uso de containers, e em ambiente local, a API poderá executada digitando o comando abaixo no diretório raiz da aplicação:
 
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
+    npm run dev
+A documentação da API poderá ser acessada na *url* http://localhost:5000/api-docs
 
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
-
-
-
-# Markdown extensions
-
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
-
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
-
-
-
-
-
-
-
+> **IMPORTANTE:** Neste caso, é preciso ter uma instância de **MongoDb** em execução e disponível para a aplicação. As configurações de conexão com a base dados devem ser definidas no arquivo dev.env
 
