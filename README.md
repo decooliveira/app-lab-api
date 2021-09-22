@@ -19,7 +19,8 @@ Controller ->> Database:
 # Documentação (Swagger)
 
 
-Todas as operações disponíveis na API REST desta aplicação estão documentadas e podem ser testadas e acessadas por meio do Swagger na *url* https://x-app-lab.herokuapp.com/api-docs (*ou localmente em http://localhost:5000/api-docs*).
+Todas as operações disponíveis na API REST desta aplicação estão documentadas e podem ser testadas e acessadas localmente por meio do Swagger na *url* http://localhost:5000/api-docs
+O Swagger não está disponível em ambiente de produção.
 
 
 # Laboratórios
@@ -33,7 +34,7 @@ Para laboratórios a aplicação oferece as seguintes funcionalidades:
 Cada uma das funcionalidades é apresentada a seguir...
 ## Cadastrar laboratórios
 
-Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/laboratórios'](https://x-app-lab.herokuapp.com/api/v1/laborat%C3%B3rios)
+Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/laboratórios'](http://localhost:5000/api/v1/laborat%C3%B3rios)
 
     {
       "nome": "string",
@@ -52,7 +53,7 @@ curl -X 'POST' \
 ```
 
  **Cadastro em lote**
-> É possível realizar o cadastro de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios). 
+> É possível realizar o cadastro de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](http://localhost:5000/api/v1/laboratorios). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -72,7 +73,7 @@ curl -X 'POST' \
  
 ## Obter uma lista laboratórios ativos
 
-Para se obter uma lista de laboratórios ativos, basta invocar o endpoint [/v1/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
+Para se obter uma lista de laboratórios ativos, basta invocar o endpoint [/v1/laboratorios](http://localhost:5000/api/v1/laboratorios) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
 
 ```bash
 curl -X 'GET' \
@@ -82,7 +83,7 @@ curl -X 'GET' \
 
 ## Atualizar um laboratório
 
-Os dados de um laboratório podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/laboratorios/{id}](https://x-app-lab.herokuapp.com/api/v1/laboratorios). O **id** do laboratório deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
+Os dados de um laboratório podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/laboratorios/{id}](http://localhost:5000/api/v1/laboratorios). O **id** do laboratório deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
 ```bash
 curl -X 'PATCH' \
   'http://localhost:5000/api/v1/laboratorios/61a23453f5412d' \
@@ -94,7 +95,7 @@ curl -X 'PATCH' \
 }'
 ```
  **Atualização em lote**
-> É possível realizar a atualização de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios). 
+> É possível realizar a atualização de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](http://localhost:5000/api/v1/laboratorios). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -112,14 +113,14 @@ curl -X 'PATCH' \
 > As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
 ## Remover laboratórios
 
-Para remover um laboratório uma operação **DELETE** deve ser realizada no endpoint [/v1/laboratorios/{id}](https://x-app-lab.herokuapp.com/api/v1/laboratorios). O **id** do laboratório deve ser informado na *url* requisitada.
+Para remover um laboratório uma operação **DELETE** deve ser realizada no endpoint [/v1/laboratorios/{id}](http://localhost:5000/api/v1/laboratorios). O **id** do laboratório deve ser informado na *url* requisitada.
 ```bash
 curl -X 'DELETE' \
   'http://localhost:5000/api/v1/laboratorios/6a66643f6e7f5ed4' \
   -H 'accept: application/json'
 ```
  **Remover em lote**
-> É possível realizar a remoção de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios). 
+> É possível realizar a remoção de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](http://localhost:5000/api/v1/laboratorios). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -145,7 +146,7 @@ Para laboratórios a aplicação oferece as seguintes funcionalidades:
 
 ## Cadastrar um novo exame
 
-Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/exames'](https://x-app-lab.herokuapp.com/api/v1/exames)
+Um laboratório pode ser cadastrado por meio de uma operação **POST** utilizando-se o request payload a seguir no endpoint '[/v1/exames'](http://localhost:5000/api/v1/exames)
 ```
 *IMPORTANTE*
 Os atributo 'tipo'pode ser definido somente com os valores a seguir:
@@ -168,7 +169,7 @@ curl -X 'POST' \
 }'
 ```
  **Cadastro em lote**
-> É possível realizar o cadastro de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](https://x-app-lab.herokuapp.com/api/v1/exames). 
+> É possível realizar o cadastro de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](http://localhost:5000/api/v1/exames). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -187,7 +188,7 @@ curl -X 'POST' \
 > 
 ## Obter uma lista exames ativos
 
-Para se obter uma lista de exames ativos, basta invocar o endpoint [/v1/exames](https://x-app-lab.herokuapp.com/api/v1/exames) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
+Para se obter uma lista de exames ativos, basta invocar o endpoint [/v1/exames](http://localhost:5000/api/v1/exames) por meio de uma requisição **GET**. Para esta operação não são necessários parâmetros.
 
 ```bash
 curl -X 'GET' \
@@ -198,7 +199,7 @@ curl -X 'GET' \
 ## Buscar um exame por nome
 
 Um exame pode ser buscado usando-se seu **nome** como parâmetro. Como resultado desta busca, a resposta será o exame e a lista de laboratórios associados a ele.
-URL  [/api/v1/exames/{nome}](https://x-app-lab.herokuapp.com/api/v1/exames/%7Bnome%7D)
+URL  [/api/v1/exames/{nome}](http://localhost:5000/api/v1/exames/%7Bnome%7D)
 ```bash
 curl -X 'GET' \
   'http://localhost:5000/api/v1/exames/Polissonografia' \
@@ -228,7 +229,7 @@ curl -X 'GET' \
 ```
 ## Atualizar um exame existente
 
-Os dados de um exame podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exanes). O **id** do exame deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
+Os dados de um exame podem ser atualizados por meio de uma operação **PATCH** no endpoint [/v1/exames/{id}](http://localhost:5000/api/v1/exanes). O **id** do exame deve ser informado na *url*, além disso, o *request* deve conter o *payload* com as demais dados que serão atualizados.
 ```bash
 curl -X 'PATCH' \
   'http://localhost:5000/api/v1/exames/6d5e66f3e4a6f' \
@@ -240,7 +241,7 @@ curl -X 'PATCH' \
 }'
 ```
  **Atualização em lote**
-> É possível realizar a atualização de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](https://x-app-lab.herokuapp.com/api/v1/exames). 
+> É possível realizar a atualização de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](http://localhost:5000/api/v1/exames). 
 > O limite de 10 exames pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -258,14 +259,14 @@ curl -X 'PATCH' \
 > As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request)**
 ## Remover logicamente um exame ativo
 
-Para remover um exame uma operação **DELETE** deve ser realizada no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exames). O **id** do laboratório deve ser informado na *url* requisitada.
+Para remover um exame uma operação **DELETE** deve ser realizada no endpoint [/v1/exames/{id}](http://localhost:5000/api/v1/exames). O **id** do laboratório deve ser informado na *url* requisitada.
 ```bash
 curl -X 'DELETE' \
   'http://localhost:5000/api/v1/exames/6f4e5a6d4e326de' \
   -H 'accept: application/json'
 ```
  **Remove em lote**
-> É possível realizar a remoção de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](https://x-app-lab.herokuapp.com/api/v1/exames). 
+> É possível realizar a remoção de um lote de até 10 exames de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/exames](http://localhost:5000/api/v1/exames). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
 ```bash
@@ -321,7 +322,7 @@ curl -X 'DELETE' \
 
 ## Execução da aplicação
 
-A aplicação está implantada na plataforma **Heroku** e pode ser acessada na *url* https://x-app-lab.herokuapp.com/api-docs
+A aplicação está implantada na plataforma **Heroku** e pode ser acessada na *url* https://x-app-lab.herokuapp.com/api/v1/**
 Contudo, ela pode ser executada localmente com ou sem o uso de containers.
 
 ## Com container
