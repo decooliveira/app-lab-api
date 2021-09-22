@@ -68,7 +68,7 @@ curl -X 'POST' \
 ]'
 ```
 
-> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request)**
  
 ## Obter uma lista laboratórios ativos
 
@@ -118,7 +118,7 @@ curl -X 'DELETE' \
   'http://localhost:5000/api/v1/laboratorios/6a66643f6e7f5ed4' \
   -H 'accept: application/json'
 ```
- **Remove em lote**
+ **Remover em lote**
 > É possível realizar a remoção de um lote de até 10 laboratórios de uma única vez. Para tanto, deve ser utilizado o endpoint [/v1/lote/laboratorios](https://x-app-lab.herokuapp.com/api/v1/laboratorios). 
 > O limite de 10 laboratórios pode ser alterado mudando o valor da variável de ambiente **TAMANHO_MAXIMO_LOTE** 
 
@@ -132,7 +132,7 @@ curl -X 'DELETE' \
   "id-do-objeto-2"
 ]'
 ```
-> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request)**
 # Exames
 
 Para laboratórios a aplicação oferece as seguintes funcionalidades:
@@ -183,7 +183,7 @@ curl -X 'POST' \
   }
 ]'
 ```
-> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request)**
 > 
 ## Obter uma lista exames ativos
 
@@ -255,7 +255,7 @@ curl -X 'PATCH' \
   }
 ]'
 ```
-> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request)**
 ## Remover logicamente um exame ativo
 
 Para remover um exame uma operação **DELETE** deve ser realizada no endpoint [/v1/exames/{id}](https://x-app-lab.herokuapp.com/api/v1/exames). O **id** do laboratório deve ser informado na *url* requisitada.
@@ -277,7 +277,7 @@ curl -X 'DELETE' \
   "string"
 ]'
 ```
-> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request**
+> As **operações em lote** são interceptadas por um *middleware* chamado *check* que faz a verificação do tamanho do lote. Caso o número de ítens no lote exceda o tamanho máximo configurado para o lote, a requisição é respondida com um código **400 ( Bad Request)**
 
 # Associações
 
