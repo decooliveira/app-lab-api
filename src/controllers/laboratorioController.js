@@ -102,7 +102,7 @@ class LaboratorioController {
 
   async listarAtivos(req, res, next) {
     try {
-      const laboratorios = await Laboratorio.find({ ativo: true });
+      const laboratorios = await Laboratorio.find({ ativo: true }).populate("exames", "-exames -__v -createdAt -updatedAt");;
       return res.json({ laboratorios });
     } catch (e) {
       return res.status(400).json({
